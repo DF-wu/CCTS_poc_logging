@@ -17,6 +17,9 @@ public class LogMessageEnvelope {
     @Field
     private int points;
 
+    @Field
+    private String time;
+
     public String getId() {
         return Id;
     }
@@ -47,5 +50,13 @@ public class LogMessageEnvelope {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

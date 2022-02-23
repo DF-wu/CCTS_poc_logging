@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import tw.dfder.ccts_poc_logging.Entity.LogMessageEnvelope;
 
 @Repository
-public interface LogRepository extends MongoRepository<LogMessageEnvelope,String> {
+public interface LogRepository extends MongoRepository<LogMessageEnvelope, String> {
     LogMessageEnvelope findByPaymentId(String pid);
 
 }

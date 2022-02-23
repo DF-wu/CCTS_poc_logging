@@ -10,28 +10,46 @@ import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Service;
+import tw.dfder.ccts_poc_logging.Entity.LogMessageEnvelope;
 import tw.dfder.ccts_poc_logging.configuration.RabbitmqConfig;
+import tw.dfder.ccts_poc_logging.configuration.ServiceConfig;
+import tw.dfder.ccts_poc_logging.repository.LogRepository;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @EnableRabbit
 @Service("MessageListener")
 public class MessageListener {
     private final Gson gson;
     private final CCTSMessageSender sender;
+    private final LogRepository repo;
 
     @Autowired
-    public MessageListener(Gson gson, CCTSMessageSender sender) {
+    public MessageListener(Gson gson, CCTSMessageSender sender, LogRepository repo) {
         this.gson = gson;
         this.sender = sender;
+        this.repo = repo;
     }
 
 
     @RabbitListener(queues = {
-            RabbitmqConfig.QUEUE_PAYMENT_RESPONSE
+            RabbitmqConfig.QUEUE_LOGGGING_REQUEST
     })
-    public void receivedMessageFromPayment(String msg, @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag, Channel ch) throws IOException {
+    public void receiveMessage(String msg, @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag, Channel ch) throws IOException {
+        LogMessageEnvelope logMessageEnvelope = gson.fromJson(msg, LogMessageEnvelope.class);
+        ch.basicAck(deliveryTag, false);
+        logMessageEnvelope.setTime(LocalDateTime.now().toString());
 
+        repo.save(logMessageEnvelope);
+
+        sender.sendMessage(
+                gson.toJson(logMessageEnvelope),
+                "orchestrator",
+                RabbitmqConfig.ROUTING_LOGGING_RESPONSE,
+                ServiceConfig.serviceName
+        );
+        System.out.println("Success!! " + logMessageEnvelope);
 
 
     }
