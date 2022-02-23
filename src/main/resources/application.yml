@@ -1,5 +1,5 @@
 server:
-  port: 58083
+  port: 58084
 serviceInfo:
   name: "loggingService"
   destinations:
