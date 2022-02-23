@@ -1,0 +1,51 @@
+package tw.dfder.ccts_poc_logging.Entity;
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Document(collection = "LogMessageEnvelopes")
+public class LogMessageEnvelope {
+    @Id
+    private String Id;
+
+    @Field
+    private String PaymentId;
+    @Field
+    private String BuyerId;
+    @Field
+    private int points;
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getPaymentId() {
+        return PaymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        PaymentId = paymentId;
+    }
+
+    public String getBuyerId() {
+        return BuyerId;
+    }
+
+    public void setBuyerId(String buyerId) {
+        BuyerId = buyerId;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+}
