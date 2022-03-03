@@ -37,6 +37,8 @@ public class MessageListener {
             RabbitmqConfig.QUEUE_LOGGGING_REQUEST
     })
     public void receiveMessage(String msg, @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag, Channel ch) throws IOException {
+
+
         LogMessageEnvelope logMessageEnvelope = gson.fromJson(msg, LogMessageEnvelope.class);
         ch.basicAck(deliveryTag, false);
         logMessageEnvelope.setTime(LocalDateTime.now().toString());
