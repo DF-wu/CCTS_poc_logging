@@ -26,7 +26,7 @@ public class CCTSMessageSender {
 
         try {
             rabbitTemplate.convertAndSend(
-                    RabbitmqConfig.EXCHANG_ORCHESTRATOR,
+                    RabbitmqConfig.EXCHANGE_ORCHESTRATOR,
                     routingKey,
                     message,
                     m -> {
