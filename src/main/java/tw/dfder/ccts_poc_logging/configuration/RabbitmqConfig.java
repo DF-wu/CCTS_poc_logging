@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitmqConfig {
     // apply the exchange and related setting when this service on.
 
-    public static final String EXCHANG_ORCHESTRATOR = "EXCHANGE_CCTS_ORCHESTRATOR";
+    public static final String EXCHANGE_ORCHESTRATOR = "EXCHANGE_CCTS_ORCHESTRATOR";
 
     public static final String QUEUE_PAYMENT_REQUEST = "QUEUE_PAYMENT_REQUEST";
     public static final String QUEUE_PAYMENT_RESPONSE = "QUEUE_PAYMENT_RESPONSE";
@@ -59,7 +59,7 @@ public class RabbitmqConfig {
     @Bean
     public Exchange EXCHANGE_CCTS(){
         // durable(true) 表面重启之后交换机还在
-        return ExchangeBuilder.topicExchange(EXCHANG_ORCHESTRATOR).durable(true).build();
+        return ExchangeBuilder.topicExchange(EXCHANGE_ORCHESTRATOR).durable(true).build();
     }
 
     // Queue for payment req/res
