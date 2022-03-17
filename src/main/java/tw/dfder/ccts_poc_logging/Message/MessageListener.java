@@ -24,12 +24,13 @@ public class MessageListener {
     private final Gson gson;
     private final CCTSMessageSender sender;
     private final LogRepository repo;
-
+    private final ServiceConfig serviceConfig;
     @Autowired
-    public MessageListener(Gson gson, CCTSMessageSender sender, LogRepository repo) {
+    public MessageListener(Gson gson, CCTSMessageSender sender, LogRepository repo, ServiceConfig serviceConfig) {
         this.gson = gson;
         this.sender = sender;
         this.repo = repo;
+        this.serviceConfig = serviceConfig;
     }
 
 
@@ -49,7 +50,7 @@ public class MessageListener {
                 gson.toJson(logMessageEnvelope),
                 "orchestrator",
                 RabbitmqConfig.ROUTING_LOGGING_RESPONSE,
-                ServiceConfig.serviceName
+                serviceConfig.serviceName
         );
         System.out.println("Success!! " + logMessageEnvelope);
 
