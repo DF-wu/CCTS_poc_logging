@@ -1,0 +1,30 @@
+{
+  "consumer": {
+    "name": "loggingService"
+  },
+  "messages": [
+    {
+      "description": "request logging",
+      "generators": {
+        "metadata": {
+
+        }
+      },
+      "metaData": {
+        "destination": "loggingService",
+        "source": "orchestrator"
+      }
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.2.10"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "orchestrator"
+  }
+}
