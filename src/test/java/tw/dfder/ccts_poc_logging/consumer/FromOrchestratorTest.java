@@ -16,7 +16,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(PactConsumerTestExt.class)
-@PactTestFor(providerName = "orchestrator", providerType = ProviderType.ASYNCH)
+@PactTestFor(providerName = "orchestrator-orphan-test", providerType = ProviderType.ASYNCH)
 public class FromOrchestratorTest {
 
     @Pact(consumer = "loggingService")
