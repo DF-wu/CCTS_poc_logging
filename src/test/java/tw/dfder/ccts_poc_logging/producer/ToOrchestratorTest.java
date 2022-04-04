@@ -5,6 +5,7 @@ import au.com.dius.pact.core.model.Interaction;
 import au.com.dius.pact.core.model.Pact;
 import au.com.dius.pact.provider.MessageAndMetadata;
 import au.com.dius.pact.provider.PactVerifyProvider;
+
 import au.com.dius.pact.provider.junit5.MessageTestTarget;
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
@@ -37,7 +38,7 @@ public class ToOrchestratorTest {
     void before(PactVerificationContext context) {
         context.setTarget(new MessageTestTarget());
         System.setProperty("pact.verifier.publishResults", "true");
-        System.setProperty("pact.provider.version", "v0.0.1");
+        System.setProperty("pact.provider.version", "v0.2");
     }
 
 

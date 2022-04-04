@@ -2,6 +2,7 @@ package tw.dfder.ccts_poc_logging.consumer;
 
 
 import au.com.dius.pact.consumer.MessagePactBuilder;
+
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
 import au.com.dius.pact.consumer.junit5.ProviderType;
