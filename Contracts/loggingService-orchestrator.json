@@ -4,15 +4,15 @@
   },
   "messages": [
     {
-      "description": "request logging",
+      "description": "t-orc-logging-01",
       "generators": {
         "metadata": {
 
         }
       },
       "metaData": {
-        "destination": "loggingService",
-        "source": "orchestrator"
+        "consumer": "loggingService",
+        "provider": "orchestrator"
       }
     }
   ],
