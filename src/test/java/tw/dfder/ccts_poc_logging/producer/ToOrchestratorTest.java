@@ -42,7 +42,7 @@ public class ToOrchestratorTest {
     }
 
 
-    @PactVerifyProvider("response logging")
+    @PactVerifyProvider("t-logging-orc-01")
     public MessageAndMetadata verifyMessageOfPayment() {
 
         Gson gson = new Gson();
