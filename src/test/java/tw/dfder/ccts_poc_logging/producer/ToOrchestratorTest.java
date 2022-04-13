@@ -53,8 +53,8 @@ public class ToOrchestratorTest {
         logMessageEnvelope.setTime(String.valueOf(System.currentTimeMillis()));
 
         HashMap<String, String> props = new HashMap<>();
-        props.put("source", "loggingService");
-        props.put("destination","orchestrator");
+        props.put("provider", "loggingService");
+        props.put("consumer","orchestrator");
         return new MessageAndMetadata(gson.toJson(logMessageEnvelope).getBytes(), props);
     }
 }

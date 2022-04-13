@@ -31,9 +31,9 @@ public class CCTSMessageSender {
                     routingKey,
                     message,
                     m -> {
-                        m.getMessageProperties().getHeaders().put("source", serviceConfig.serviceName);
-                        m.getMessageProperties().getHeaders().put("destination", destination );
-                        m.getMessageProperties().getHeaders().put("pact", pactName);
+                        m.getMessageProperties().getHeaders().put("provider", serviceConfig.serviceName);
+                        m.getMessageProperties().getHeaders().put("consumer", destination );
+                        m.getMessageProperties().getHeaders().put("testCaseId", pactName);
                         return m;
                     }
             );

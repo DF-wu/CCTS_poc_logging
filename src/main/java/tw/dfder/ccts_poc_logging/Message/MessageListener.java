@@ -50,9 +50,8 @@ public class MessageListener {
                 gson.toJson(logMessageEnvelope),
                 "orchestrator",
                 RabbitmqConfig.ROUTING_LOGGING_RESPONSE,
-                serviceConfig.serviceName
+                "t-logging-orc-01"
         );
-        System.out.println("Success!! " + logMessageEnvelope);
 
 
     }
