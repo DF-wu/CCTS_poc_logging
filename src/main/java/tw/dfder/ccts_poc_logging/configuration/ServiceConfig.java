@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 @ConfigurationProperties(prefix = "serviceinfo")
 public class ServiceConfig {
-    public String serviceName;
+    public String name;
 //
 //    @Value("${serviceInfo.pact}")
 //    public static String correspondingPact;
@@ -21,12 +21,12 @@ public class ServiceConfig {
     public List<String> destinations;
 
 
-    public String getServiceName() {
-        return serviceName;
+    public String getName() {
+        return name;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<String> getDestinations() {
