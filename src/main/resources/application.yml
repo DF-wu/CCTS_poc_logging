@@ -1,6 +1,6 @@
 server:
   port: 58084
-serviceinfo:
+serviceInfo:
   name: "loggingService"
   destinations:
     - paymentService
