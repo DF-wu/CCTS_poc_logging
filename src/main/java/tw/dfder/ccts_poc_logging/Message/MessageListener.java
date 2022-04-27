@@ -50,7 +50,8 @@ public class MessageListener {
                 gson.toJson(logMessageEnvelope),
                 "orchestrator",
                 RabbitmqConfig.ROUTING_LOGGING_RESPONSE,
-                "t-logging-orc-01"
+                "t-logging-orc-01",
+                "6"
         );
 
 
